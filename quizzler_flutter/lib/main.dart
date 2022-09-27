@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quizzler_flutter/question.dart';
+import 'package:quizzler_flutter/quiz_brain.dart';
 
+QuizBrain quizBrain = QuizBrain();
 void main() => runApp(const Quizzler());
 
 class Quizzler extends StatelessWidget {
@@ -40,18 +41,6 @@ class _QuizPageState extends State<QuizPage> {
       color: Colors.red,
     ),
   ];
-
-  List<Question> questionBank = [
-    Question(
-        questionText: 'You can lead a cow down stairs but not upstairs.',
-        questionAnswer: false),
-    Question(
-        questionText:
-            'Approximately one quarter of human bones are in the feet.',
-        questionAnswer: true),
-    Question(questionText: 'A slug\'s blood is green.', questionAnswer: true),
-  ];
-
   int questionNumber = 0;
 
   @override
@@ -66,7 +55,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questionBank[questionNumber].questionText,
+                quizBrain.questionBank[questionNumber].questionText,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 25.0,
@@ -93,7 +82,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 // The user picked true
                 bool correctAnswer =
-                    questionBank[questionNumber].questionAnswer;
+                    quizBrain.questionBank[questionNumber].questionAnswer;
               },
             ),
           ),
@@ -115,7 +104,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 // The user picked false
                 bool correctAnswer =
-                    questionBank[questionNumber].questionAnswer;
+                    quizBrain.questionBank[questionNumber].questionAnswer;
               },
             ),
           ),
