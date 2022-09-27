@@ -83,6 +83,14 @@ class _QuizPageState extends State<QuizPage> {
                 // The user picked true
                 bool correctAnswer =
                     quizBrain.questionBank[questionNumber].questionAnswer;
+                if (correctAnswer == true) {
+                  print('User got it right');
+                } else {
+                  print('User got it wrong');
+                }
+                setState(() {
+                  questionNumber++;
+                });
               },
             ),
           ),
@@ -105,6 +113,14 @@ class _QuizPageState extends State<QuizPage> {
                 // The user picked false
                 bool correctAnswer =
                     quizBrain.questionBank[questionNumber].questionAnswer;
+                if (correctAnswer == false) {
+                  print('User got it right');
+                } else {
+                  print('User got it wrong');
+                }
+                setState(() {
+                  questionNumber++;
+                });
               },
             ),
           ),
