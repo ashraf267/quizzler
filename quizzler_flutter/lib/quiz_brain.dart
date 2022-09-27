@@ -1,7 +1,7 @@
 import 'package:quizzler_flutter/question.dart';
 
 class QuizBrain {
-  List<Question> questionBank = [
+  final List<Question> _questionBank = [
     Question('You can lead a cow down stairs but not upstairs.', false),
     Question('Approximately one quarter of human bones are in the feet.', true),
     Question('A slug\'s blood is green.', true),
@@ -12,4 +12,12 @@ class QuizBrain {
     Question('Turkiye is a transcontinental country', true),
     Question('Adobe acquired Figma in 2022', true),
   ];
+
+  String getQuestionText(int qNo) {
+    return _questionBank[qNo].questionText;
+  }
+
+  bool getQuestionAnswer(int qNo) {
+    return _questionBank[qNo].questionAnswer;
+  }
 }
